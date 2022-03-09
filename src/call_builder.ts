@@ -31,7 +31,9 @@ if (anyGlobal.EventSource) {
   /* tslint:disable-next-line:no-var-requires */
   EventSource = require("eventsource");
 } else {
-  EventSource = anyGlobal.window.EventSource;
+  // EventSource = anyGlobal.window.EventSource;
+    /* require("eventsource") for React Native env */
+    EventSource = require("eventsource");
 }
 
 /**
