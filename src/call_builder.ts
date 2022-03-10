@@ -30,8 +30,9 @@ if (anyGlobal.EventSource) {
 } else if (isNode) {
   /* tslint:disable-next-line:no-var-requires */
   EventSource = require("eventsource");
+} else if (anyGlobal.window.EventSource) { 
+  EventSource = anyGlobal.window.EventSource;
 } else {
-  // EventSource = anyGlobal.window.EventSource;
   // require("eventsource") for React Native env
   /* tslint:disable-next-line:no-var-requires */
   EventSource = require("eventsource");
